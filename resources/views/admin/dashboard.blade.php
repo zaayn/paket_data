@@ -111,9 +111,9 @@
               <div class="col-md-12 padding-0">
                 <div class="panel box-v2">
                     <div class="panel-heading padding-0">
-                      <img src="asset/img/bg2.jpg" class="box-v2-cover img-responsive"/>
+                      <img src="{{asset('asset/img/bg2.jpg')}}" class="box-v2-cover img-responsive"/>
                       <div class="box-v2-detail">
-                        <img src="asset/img/avatar.jpg" class="img-responsive"/>
+                        <img src="{{asset('asset/img/avatar.jpg')}}" class="img-responsive"/>
                         <h4>Akihiko Avaron</h4>
                       </div>
                     </div>
@@ -337,4 +337,3 @@
     </div>
 </div>
 @endsection
-

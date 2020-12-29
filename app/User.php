@@ -2,21 +2,20 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'users';
+    protected $primaryKey = 'email';
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 
+        'email', 
+        'password', 
+        'role',
     ];
 
     /**
@@ -27,13 +26,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    const ADMIN_TYPE = 'admin';
+    const USERS_TYPE = 'user';
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public $incrementing = false;
+    public function transaksi()
+    {
+
+        return $this->hasMany(\App\Transaksi::class);
+
+    }
+
+    public function isAdmin() {
+        return $this->role === self::ADMIN_TYPE;
+    }
+
+    public function isUser() {
+        return $this->role === self::USERS_TYPE;
+    }
 }
