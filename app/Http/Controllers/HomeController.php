@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,10 @@ class HomeController extends Controller
      */
     public function admin()
     {
-        return view('/admin/dashboard');
+        $data['member'] = User::where('role','user')->count();
+        // $data['transaksi'] = User::where('role','user')->count();
+        // $data['produk'] = User::where('role','user')->count();
+        return view('/admin/dashboard',$data);
     }
     public function user()
     {

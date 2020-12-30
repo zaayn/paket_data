@@ -59,7 +59,7 @@
                           </div>
                         </div>
                         <div class="panel-body text-center">
-                          <h1>51181,320</h1>
+                          <h1>{{ $member }}</h1>
                           <p>User active</p>
                           <hr/>
                         </div>

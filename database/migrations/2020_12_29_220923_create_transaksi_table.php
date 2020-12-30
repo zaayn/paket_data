@@ -16,7 +16,7 @@ class CreateTransaksiTable extends Migration
         Schema::create('transaksi', function (Blueprint $table) {
             $table->increments('t_id')->unique();
             $table->integer('id')->unsigned();
-            $table->integer('prov_id')->unsigned();
+            $table->integer('p_id')->unsigned();
             $table->integer('t_total');
             $table->string('t_status');
             $table->timestamps();
@@ -30,9 +30,9 @@ class CreateTransaksiTable extends Migration
                 ->onUpdate('cascade');
         });
         Schema::table('transaksi', function($table){
-            $table->foreign('prov_id')
-                ->references('prov_id')
-                ->on('provider')
+            $table->foreign('p_id')
+                ->references('p_id')
+                ->on('produk')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
