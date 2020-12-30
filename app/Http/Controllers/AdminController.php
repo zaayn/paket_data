@@ -9,17 +9,9 @@ use App\User;
 
 class AdminController extends Controller
 {
-    public function admin(){
-        $data['no'] = 1;
-        $data['admins'] = User::where('role','admin')->get();
-
-        
-
-        return view('/admin/user/admin',$data);    
-    }
     public function user(){
         $data['no'] = 1;
-        $data['users'] = User::where('role','user')->get();
+        $data['users'] = User::all();
         return view('/admin/user/user',$data);    
     }
     public function insert(){
@@ -39,24 +31,19 @@ class AdminController extends Controller
         $users->password       = $request->password;
         $users->email          = $request->email;
         $users->role           = $request->role;
-        
-        $links = session()->has('links') ? session('links') : [];
-        $currentLink = request()->path(); // Getting current URI like 'category/books/'
-        array_unshift($links, $currentLink); // Putting it in the beginning of links array
-        session(['links' => $links]); // Saving links array to the session
 
         if ($users->save()){
-            // return redirect('/admin/tambah_user')->with('success', 'item berhasil ditambahkan');
-            return redirect(session('links')[2]);
+            return redirect('/admin/user/user')->with('success', 'item berhasil ditambahkan');
+
         }
         else{
-            return redirect('/admin/tambah_user')->with('error', 'item gagal ditambahkan');
+            return redirect('/admin/user/tambah_user')->with('error', 'item gagal ditambahkan');
         }
     }
     public function edit($email)
 	{
         $user = User::findorFail($email);
-    	return view('/admin/user/edit_user')->with('user',$user);
+    	return view('/admin/admin/edit_user')->with('user',$user);
 	}
     public function update(Request $request, $id){
         
@@ -66,9 +53,13 @@ class AdminController extends Controller
         $user->role     = $request->role;
         
         if ($user->save())
-            return redirect('admin/tambah_user')->with('success', 'item berhasil diupdate');
+            return redirect('admin/user/user')->with('success', 'item berhasil diupdate');
         else {
-            return redirect('admin/tambah_user')->with('error', 'item gagal diupdate');
+            return redirect('admin/user/user')->with('error', 'item gagal diupdate');
         }
+    }
+    public function delete($email){
+        $user = User::findOrFail($email)->delete();
+        return redirect()->route('user')->with('success', 'delete sukses');
     }
 }

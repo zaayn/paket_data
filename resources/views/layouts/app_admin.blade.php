@@ -78,40 +78,12 @@
                       <h1 class="animated fadeInLeft">21:00</h1>
                       <p class="animated fadeInRight">Sat,October 1st 2029</p>
                     </li>
-                    <li class="active ripple">
-                      <a class="tree-toggle nav-header"><span class="fa-home fa"></span> User 
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                          <li><a href="/admin/admin">Admin / Penjual</a></li>
-                          <li><a href="/admin/user">Pembeli</a></li>
-                      </ul>
-                    </li>
 
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa-diamond fa"></span> Produk
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="topnav.html">Top Navigation</a></li>
-                        <li><a href="boxed.html">Boxed</a></li>
-                      </ul>
-                    </li>
+                    <li class="ripple"><a href="/admin/home"><span class="fa fa-home"></span>Dashboard</a></li>
+                    <li class="ripple"><a href="/admin/user"><span class="fa fa-user"></span>User</a></li>
+                    <li class="ripple"><a href="/admin/produk"><span class="fa fa-tags"></span>Product</a></li>
+                    <li class="ripple"><a href="/admin/transaksi"><span class="fa fa-calendar-o"></span>Transaksi</a></li>
 
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa-area-chart fa"></span> Paket Data
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="chartjs.html">ChartJs</a></li>
-                        <li><a href="morris.html">Morris</a></li>
-                        <li><a href="flot.html">Flot</a></li>
-                        <li><a href="sparkline.html">SparkLine</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple"><a href="calendar.html"><span class="fa fa-calendar-o"></span>Transaksi</a></li>
                   </ul>
                 </div>
             </div>

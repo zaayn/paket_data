@@ -28,9 +28,9 @@
               <table id="mydatatables" class="table table-striped table-bordered" width="100%" cellspacing="0">
                 <thead>
                   <th style="width: 5%">ID</th>
-                  <th style="width: 25%">Nama User</th>
-                  <th style="width: 25%">Email</th>
-
+                  <th style="width: 30%">Nama User</th>
+                  <th style="width: 30%">Email</th>
+                  <th style="width: 20%">Role</th>
                   <th style="width: 15%">Aksi</th>
                 </thead>
                 <tbody>
@@ -39,12 +39,13 @@
                   <td>{{ $no++ }}</td>
                   <td>{{ $user->name }}</td>
                   <td>{{ $user->email }}</td>
+                  <td>{{ $user->role }}</td>
 
                   <td>
-                    <a href="#" class="btn btn-info btn-sm">
+                    <a href="{{route('edit.user',$user->email)}}" class="btn btn-info btn-sm">
                       <span class="fa fa-pencil"></span>
                     </a>
-                    <a onclick="return confirm('Apakah anda yakin akan menghapus data ini ?')" href="#" class="btn btn-danger btn-sm">
+                    <a onclick="return confirm('Apakah anda yakin akan menghapus data ini ?')" href="{{route('delete.user',$user->email)}}" class="btn btn-danger btn-sm">
                       <span class="fa fa-trash"></span>
                     </a>
                   </td>
