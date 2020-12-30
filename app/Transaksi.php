@@ -2,8 +2,7 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 class Transaksi extends Model
 {
@@ -12,8 +11,7 @@ class Transaksi extends Model
     protected $fillable = [
         'id', 
         'p_id', 
-        't_jumlah_brg', 
-        't_pembayaran',
+        'no_hp', 
         't_total',
         't_status',
     ];
@@ -23,6 +21,6 @@ class Transaksi extends Model
     }
     public function produk()
     {
-        return $this->belongsTo(\App\Produkk::class,'p_id','p_id');
+        return $this->belongsTo(\App\Produk::class,'p_id','p_id');
     }
 }

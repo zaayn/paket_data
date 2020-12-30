@@ -17,6 +17,7 @@ class CreateTransaksiTable extends Migration
             $table->increments('t_id')->unique();
             $table->integer('id')->unsigned();
             $table->integer('p_id')->unsigned();
+            $table->string('no_hp');
             $table->integer('t_total');
             $table->string('t_status');
             $table->timestamps();

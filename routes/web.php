@@ -35,11 +35,21 @@ Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'], function(){
     Route::put('/update/{id}','ProdukController@update')->name('update.produk');
     Route::get('/delete/produk{id}','ProdukController@delete')->name('delete.produk');
 
+    // transaksi
+
+
 });
 
 Route::group(['prefix' => 'user',  'middleware' => 'is_user'], function(){
 
     Route::get('/home', 'HomeController@user')->name('home.user');
+    Route::get('/add_transaksi','TransaksiController@insert')->name('transaksi');
+    Route::post('/no_hp','TransaksiController@store')->name('store.transaksi');
+    Route::get('/pilih_produk/{id}','TransaksiController@pilih')->name('pilih.produk');
+    Route::get('/store_transaksi/{id}/{no}','TransaksiController@store2')->name('store.transaksi2');
+    // Route::get('/store_transaksi/{id}/{no}',['uses' => 'TransaksiController@store2','as'=>'store_transaksi'])->name('store.transaksi2');
+    Route::get('/transaksi', 'transaksiController@index')->name('index.transaksi');
+
 });
 Auth::routes();
 
