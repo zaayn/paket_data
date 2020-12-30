@@ -4,7 +4,7 @@
 <div class="panel">
     <div class="panel-body">
         <div class="col-md-6 col-sm-12">
-            <h3 class="animated fadeInLeft">Admin</h3>
+            <h3 class="animated fadeInLeft">Selamat Datang {{ Auth::user()->name }}</h3>
             <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Sidoarjo, Indonesia</p>
 
         </div>

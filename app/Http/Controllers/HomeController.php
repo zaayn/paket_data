@@ -27,6 +27,6 @@ class HomeController extends Controller
     }
     public function user()
     {
-        return view('/user/dashboard');
+        return view('/user/dashboard_user');
     }
 }
