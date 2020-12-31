@@ -18,8 +18,8 @@ Cara menjalankan Website Toko Penjualan Paket data dan Pulsa
     DB_USERNAME=root
     DB_PASSWORD=
     ```
-    DB_DATABASE = Nama database yang akan digunakan_
-    DB_USERNAME = username dari db yang akan digunakan_
+    DB_DATABASE = Nama database yang akan digunakan<br/>
+    DB_USERNAME = username dari db yang akan digunakan<br/>
     DB_PASSWORD = password db yang akan digunakan
 
 
