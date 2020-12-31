@@ -36,6 +36,10 @@ Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'], function(){
     Route::get('/delete/produk{id}','ProdukController@delete')->name('delete.produk');
 
     // transaksi
+    Route::get('/waiting', 'transaksiController@index_admin')->name('index.transaksi.admin');
+    Route::get('/rekap', 'transaksiController@rekap_admin')->name('rekap.transaksi.admin');
+    Route::get('/edit_pembayaran/{id}','transaksiController@edit_pembayaran')->name('edit.pembayaran');
+
 
 
 });
@@ -47,9 +51,11 @@ Route::group(['prefix' => 'user',  'middleware' => 'is_user'], function(){
     Route::post('/no_hp','TransaksiController@store')->name('store.transaksi');
     Route::get('/pilih_produk/{id}','TransaksiController@pilih')->name('pilih.produk');
     Route::get('/store_transaksi/{id}/{no}','TransaksiController@store2')->name('store.transaksi2');
-    // Route::get('/store_transaksi/{id}/{no}',['uses' => 'TransaksiController@store2','as'=>'store_transaksi'])->name('store.transaksi2');
-    Route::get('/transaksi', 'transaksiController@index')->name('index.transaksi');
+    Route::get('/pembayaran', 'transaksiController@index')->name('index.transaksi');
+    Route::get('/history', 'transaksiController@history')->name('history.transaksi');
 
+    Route::get('/up_bukti/{id}', 'transaksiController@upload')->name('up.file');
+    Route::post('/store_file{id}', 'transaksiController@storefile')->name('store.file');
 });
 Auth::routes();
 

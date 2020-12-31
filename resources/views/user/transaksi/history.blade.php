@@ -35,7 +35,6 @@
                   <th style="width: 15%">Deskripsi Paket</th>
                   <th style="width: 10%">Total Harga</th>
                   <th style="width: 5%">Status Transaksi</th>
-                  <th style="width: 5%">pembayaran</th>
                   
                 </thead>
                 <tbody>
@@ -49,17 +48,6 @@
                   <td>{{ $transaksi->produk->p_isi }}</td>
                   <td>{{ $transaksi->produk->p_harga }}</td>
                   <td>{{ $transaksi->t_status }}</td>
-                  @if ($transaksi->t_status == "Pending")
-                    <td>
-                      <a href="{{route('up.file',$transaksi->t_id)}}" class="btn btn-info btn-sm">
-                        <span class="fa fa-pencil"></span>
-                      </a>
-                    </td>
-                  @else
-                  <td>
-                    Verifikasi
-                  </td>
-                  @endif
                   
                 </tr>
                 @endforeach

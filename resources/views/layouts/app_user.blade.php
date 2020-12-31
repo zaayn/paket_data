@@ -81,8 +81,8 @@
                     
                     <li class="ripple"><a href="/user/home"><span class="fa fa-home"></span>Home</a></li>
                     <li class="ripple"><a href="/user/add_transaksi"><span class="fa fa-shopping-cart "></span>Pembelian</a></li>
-                    <li class="ripple"><a href="calendar.html"><span class="fa fa-credit-card "></span>Pembayaran</a></li>
-                    <li class="ripple"><a href="/user/transaksi"><span class="fa fa-history"></span>Riwayat Transaksi</a></li>
+                    <li class="ripple"><a href="/user/pembayaran"><span class="fa fa-credit-card "></span>Pembayaran</a></li>
+                    <li class="ripple"><a href="/user/history"><span class="fa fa-history"></span>Riwayat Transaksi</a></li>
                   </ul>
                 </div>
             </div>

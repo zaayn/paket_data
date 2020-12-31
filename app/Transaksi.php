@@ -14,6 +14,7 @@ class Transaksi extends Model
         'no_hp', 
         't_total',
         't_status',
+        't_file',
     ];
     public function user()
     {

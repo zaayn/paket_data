@@ -20,6 +20,7 @@ class CreateTransaksiTable extends Migration
             $table->string('no_hp');
             $table->integer('t_total');
             $table->string('t_status');
+            $table->string('t_file')->nullable();
             $table->timestamps();
 
         });

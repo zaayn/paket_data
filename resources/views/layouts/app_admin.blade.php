@@ -78,12 +78,20 @@
                       <h1 class="animated fadeInLeft">21:00</h1>
                       <p class="animated fadeInRight">Sat,October 1st 2029</p>
                     </li>
-
+                    
                     <li class="ripple"><a href="/admin/home"><span class="fa fa-home"></span>Dashboard</a></li>
                     <li class="ripple"><a href="/admin/user"><span class="fa fa-user"></span>User</a></li>
                     <li class="ripple"><a href="/admin/produk"><span class="fa fa-tags"></span>Product</a></li>
-                    <li class="ripple"><a href="/admin/transaksi"><span class="fa fa-calendar-o"></span>Transaksi</a></li>
-
+                    <li class="ripple">
+                      <a class="tree-toggle nav-header">
+                        <span class="fa-diamond fa"></span> Transaksi
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>
+                      <ul class="nav nav-list tree">
+                        <li><a href="/admin/waiting">Waiting</a></li>
+                        <li><a href="/admin/rekap">Rekap Transaksi</a></li>
+                      </ul>
+                    </li>
                   </ul>
                 </div>
             </div>

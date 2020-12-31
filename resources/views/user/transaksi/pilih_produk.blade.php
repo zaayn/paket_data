@@ -23,11 +23,11 @@
             <div class="panel box-v1">
                 <div class="panel-heading bg-white border-none">
                     <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                        <h4 class="text-left">{{$kategori}} {{$provider}} {{$no_hp}}</h4>
+                        <h4 class="text-left">{{$kategori}} {{$provider}}</h4>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                         <h4>
-                            <span class="icon-user icons icon text-right"></span>
+                            <span class="text-right">Stok {{$temp->p_stok}}</span>
                         </h4>
                     </div>
                 </div>
