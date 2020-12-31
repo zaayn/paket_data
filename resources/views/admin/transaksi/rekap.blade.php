@@ -5,10 +5,10 @@
     <div class="col-md-12">
         <div class="panel block">
             <div class="panel-body">
-                <h1>Transaksi Anda</h1>
+                <h1>Rekap Transaksi</h1>
                 <ol class="breadcrumb">
                     <li><a href="{{asset('/user/home')}}"></i> Home</a></li>
-                    <li class="active">Produk</li>
+                    <li class="active">Rekap Transaksi</li>
                 </ol>
             </div>
         </div>
