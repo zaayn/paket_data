@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2020 at 01:08 AM
+-- Generation Time: Dec 31, 2020 at 03:44 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -38,11 +38,10 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(8, '2020_12_29_214752_create_provider_table', 1),
-(19, '2014_10_12_000000_create_users_table', 2),
-(20, '2014_10_12_100000_create_password_resets_table', 2),
-(21, '2020_12_29_215902_create_produk_table', 2),
-(22, '2020_12_29_220923_create_transaksi_table', 2);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2020_12_29_215902_create_produk_table', 1),
+(4, '2020_12_29_220923_create_transaksi_table', 1);
 
 -- --------------------------------------------------------
 
@@ -72,10 +71,6 @@ CREATE TABLE `produk` (
   `created_at` TIMESTAMP NULL DEFAULT NULL,
   `updated_at` TIMESTAMP NULL DEFAULT NULL
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `produk`
---
 
 INSERT INTO `produk` (`p_id`, `p_provider`, `p_kategori`, `p_isi`, `p_stok`, `p_harga`, `created_at`, `updated_at`) VALUES
 (1, 'telkomsel', 'paket data', '1 GB', 20, 10000, '2020-12-30 04:41:26', '2020-12-30 04:41:26'),
@@ -128,19 +123,6 @@ INSERT INTO `produk` (`p_id`, `p_provider`, `p_kategori`, `p_isi`, `p_stok`, `p_
 (43, 'smartfren', 'paket data', '20 GB', 20, 100000, '2020-12-30 04:41:42', '2020-12-30 04:41:42'),
 (44, 'smartfren', 'pulsa', '100000', 20, 100000, '2020-12-30 04:41:42', '2020-12-30 04:41:42'),
 (45, 'smartfren', 'pulsa', '200000', 20, 200000, '2020-12-30 04:41:42', '2020-12-30 04:41:42');
--- --------------------------------------------------------
-
---
--- Table structure for table `provider`
---
-
-CREATE TABLE `provider` (
-  `prov_id` INT(10) UNSIGNED NOT NULL,
-  `prov_no_tlp` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `prov_nama` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` TIMESTAMP NULL DEFAULT NULL,
-  `updated_at` TIMESTAMP NULL DEFAULT NULL
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -149,24 +131,16 @@ CREATE TABLE `provider` (
 --
 
 CREATE TABLE `transaksi` (
-  `t_id` int(10) UNSIGNED NOT NULL,
-  `id` int(10) UNSIGNED NOT NULL,
-  `p_id` int(10) UNSIGNED NOT NULL,
-  `no_hp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `t_total` int(11) NOT NULL,
-  `t_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`t_id`, `id`, `p_id`, `no_hp`, `t_total`, `t_status`, `created_at`, `updated_at`) VALUES
-(1, 2, 5, '090909', 50000, 'Pending', '2020-12-30 08:23:35', '2020-12-30 08:23:35'),
-(2, 2, 4, '9090', 30000, 'Pending', '2020-12-30 08:46:36', '2020-12-30 08:46:36'),
-(3, 2, 4, '6555444', 30000, 'Sukses', '2020-12-30 08:53:45', '2020-12-30 09:08:55');
+  `t_id` INT(10) UNSIGNED NOT NULL,
+  `id` INT(10) UNSIGNED NOT NULL,
+  `p_id` INT(10) UNSIGNED NOT NULL,
+  `no_hp` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `t_total` INT(11) NOT NULL,
+  `t_status` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `t_file` VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT NULL,
+  `updated_at` TIMESTAMP NULL DEFAULT NULL
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -175,23 +149,23 @@ INSERT INTO `transaksi` (`t_id`, `id`, `p_id`, `no_hp`, `t_total`, `t_status`, `
 --
 
 CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id` INT(10) UNSIGNED NOT NULL,
+  `name` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` VARCHAR(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT NULL,
+  `updated_at` TIMESTAMP NULL DEFAULT NULL
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', '$2y$10$cPafjXiJvxj9Lq6LHM.yzejyPIaHSxurjNtgfELpO9dY9JVpi4qCC', 'admin', 'uGH5FZYslV17Yrgw67gHlTUY8rOCogCx8mJdXX4F77BuK3UmQoOP2KjCiQ8B', '2020-12-30 04:40:55', '2020-12-30 04:40:55'),
-(2, 'zayn', 'zayn@gmail.com', '$2y$10$ip8z2LEdngpn/nt7qjEyX.COcxjJVfFu.ywG80.2WI5gzt/OffytG', 'user', 'vU7lCu4W6TN2IaugTYZ1wbsYHOyXnpbSB2J4mSBVbINGHVXAXi5rapft34iZ', '2020-12-30 04:40:55', '2020-12-30 04:40:55');
+(1, 'admin', 'admin@gmail.com', '$2y$10$LnkC74fSrIJDbeahidGt5Oo2JQNjVdHXfevlsa7ZSp0EqnyBj1wmK', 'admin', NULL, '2020-12-30 19:43:24', '2020-12-30 19:43:24'),
+(2, 'zayn', 'zayn@gmail.com', '$2y$10$OkOfxqxeR.KxlbhWS9jGD.VxzyI/4.KzxXVsib7VYK.51nYSHOS4S', 'user', NULL, '2020-12-30 19:43:24', '2020-12-30 19:43:24');
 
 --
 -- Indexes for dumped tables
@@ -217,13 +191,6 @@ ALTER TABLE `produk`
   ADD UNIQUE KEY `produk_p_id_unique` (`p_id`);
 
 --
--- Indexes for table `provider`
---
-ALTER TABLE `provider`
-  ADD PRIMARY KEY (`prov_id`),
-  ADD UNIQUE KEY `provider_prov_id_unique` (`prov_id`);
-
---
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
@@ -247,31 +214,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `p_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `provider`
---
-ALTER TABLE `provider`
-  MODIFY `prov_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `p_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `t_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `t_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
